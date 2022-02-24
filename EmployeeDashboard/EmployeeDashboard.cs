@@ -155,6 +155,7 @@ namespace EmployeeDashboard
             txtAddress.Clear();
             txtBloodgroup.Text = string.Empty;
             txtDOB.MaxDate = DateTime.Today;
+            txtDOB.Value = DateTime.Today;
             txtContact.Clear();
             txtEmpId.ResetText();
             txtFirstname.Clear();

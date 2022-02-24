@@ -14,8 +14,7 @@ namespace EmployeeDashboard
         [STAThread]
         static void Main()
         {
-
-
+            //This is test commit 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new EmployeeDashboard());

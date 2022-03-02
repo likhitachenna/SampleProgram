@@ -5,18 +5,18 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
+using resource = EmployeeDashboard.Properties.Resources;
+using System.Threading;
 
 namespace EmployeeDashboard
 {
     public partial class EmployeeDashboard : Form
     {
-      
-        static ResourceManager resourceManager = new ResourceManager("EmployeeDashboard.Properties.Resources"+ RegionInfo.CurrentRegion.Name, Assembly.GetExecutingAssembly());
         public EmployeeDashboard()
         {
             if (!Database.IsValidConnection())
                 return;
-
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
             InitializeComponent();
             DisplayRecords();
             setLanguage();
@@ -27,12 +27,12 @@ namespace EmployeeDashboard
             bool insertEmployee = true;
             if (txtAddress.Text == "" || txtBloodgroup.Text == "" || txtContact.Text == "" || txtDOB.Text == "" || txtFirstname.Text == "" || txtLastname.Text == "" || (radioBtnMale.Checked == false && radioBtnFemale.Checked == false))
             {
-                MessageBox.Show(resourceManager.GetString("MSG_INPUTERROR"), resourceManager.GetString("MSG_INPUT"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(resource.MSG_INPUTERROR, resource.MSG_INPUT, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 insertEmployee = false;
             }
             if ((txtContact.Text).Length != 10)
             {
-                MessageBox.Show(resourceManager.GetString("MSG_INVALIDPHNO"), resourceManager.GetString("MSG_INVALDERROR"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(resource.MSG_INVALIDPHNO, resource.MSG_INVALDERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 insertEmployee = false;
             }
             return insertEmployee;
@@ -49,11 +49,11 @@ namespace EmployeeDashboard
                 empId = Convert.ToInt32(res.Rows[0][0]);
                 if (empId > 0)
                 {
-                    MessageBox.Show(resourceManager.GetString("TXT_LBLEMPID")+ ":" + empId + " " + resourceManager.GetString("MSG_INSERT"), resourceManager.GetString("MSG_INSERHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resource.TXT_LBLEMPID+ ":" + empId + " " + resource.MSG_INSERT, resource.MSG_INSERTHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show(resourceManager.GetString("MSG_INSERTERROR"), resourceManager.GetString("MSG_INSERHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(resource.MSG_INSERTERROR, resource.MSG_INSERTHEAD, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             DisplayRecords();
@@ -70,11 +70,11 @@ namespace EmployeeDashboard
                 bool employeeUpdated = Convert.ToBoolean(resultTable.Rows[0][0]);
                 if (employeeUpdated)
                 {
-                    MessageBox.Show(resourceManager.GetString("TXT_LBLEMPID") + ":" + empId + " " + resourceManager.GetString("MSG_UPDATE"), resourceManager.GetString("MSG_UPDATEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resource.TXT_LBLEMPID + ":" + empId + " " + resource.MSG_UPDATE, resource.MSG_UPDATEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show(resourceManager.GetString("MSG_UPDATEERROR"), resourceManager.GetString("MSG_UPDATEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(resource.MSG_UPDATEERROR, resource.MSG_UPDATEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             DisplayRecords();
@@ -82,7 +82,7 @@ namespace EmployeeDashboard
 
         private void DeleteEmployee()
         {
-            DialogResult res = MessageBox.Show(resourceManager.GetString("MSG_DELETEERR"), resourceManager.GetString("MSG_DELETEHEAD"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult res = MessageBox.Show(resource.MSG_DELETEERR, resource.MSG_DELETEHEAD, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (res == DialogResult.Yes)
             {
                 var empId = txtEmpId.Text;
@@ -95,11 +95,11 @@ namespace EmployeeDashboard
                     bool employeeDeleted = Convert.ToBoolean(resultTable.Rows[0][0]);
                     if (employeeDeleted)
                     {
-                        MessageBox.Show(resourceManager.GetString("TXT_LBLEMPID") + ":" + empId + " " + resourceManager.GetString("MSG_DELETE"), resourceManager.GetString("MSG_DELETEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(resource.TXT_LBLEMPID + ":" + empId + " " + resource.MSG_DELETE, resource.MSG_DELETEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show(resourceManager.GetString("MSG_DELETEERROR"), resourceManager.GetString("MSG_DELETEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(resource.MSG_DELETEERROR, resource.MSG_DELETEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -151,13 +151,13 @@ namespace EmployeeDashboard
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, resourceManager.GetString("MSG_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, resource.MSG_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show(resourceManager.GetString("MSG_EXIST"), resourceManager.GetString("MSG_EXISTHEAD"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult res = MessageBox.Show(resource.MSG_EXIST, resource.MSG_EXISTHEAD, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (res == DialogResult.Yes)
             {
                 Application.Exit();
@@ -175,6 +175,7 @@ namespace EmployeeDashboard
             txtLastname.Clear();
             radioBtnMale.Checked = true;
             radioBtnFemale.Checked = false;
+            txtEmpId.Text = resource.TXT_EMPID;
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -195,30 +196,34 @@ namespace EmployeeDashboard
         {
             long output;
             if(!(Int64.TryParse(txtContact.Text, out output))){
-                MessageBox.Show(resourceManager.GetString("MSG_INVALIDPHNO"), resourceManager.GetString("MSG_INVALDERROR"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(resource.MSG_INVALIDPHNO, resource.MSG_INVALDERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
         public void setLanguage()
         {
-            lblName.Text = resourceManager.GetString("TXT_LBLNAME");
-            lblFirstname.Text = resourceManager.GetString("TXT_LBLFNAME");
-            lblLastname.Text = resourceManager.GetString("TXT_LBLLNAME");
-            lblEmpID.Text = resourceManager.GetString("TXT_LBLEMPID");
-            lblDOB.Text = resourceManager.GetString("TXT_LBLDOB");
-            lblAddress.Text = resourceManager.GetString("TXT_LBLADDRESS");
-            lblGender.Text = resourceManager.GetString("TXT_LBLGENDER");
-            lblContact.Text = resourceManager.GetString("TXT_LBLCONTACT");
-            lblBloodgroup.Text = resourceManager.GetString("TXT_LBLBLOODGROUP");
-            lblHead.Text = resourceManager.GetString("TXT_LBLHEAD");
-            radioBtnFemale.Text = resourceManager.GetString("TXT_RBTNFEMALE");
-            radioBtnMale.Text = resourceManager.GetString("TXT_RBTNMALE");
-            btnInsert.Text = resourceManager.GetString("TXT_INSERTBTN");
-            btnDelete.Text = resourceManager.GetString("TXT_DELETEBTN");
-            btnClose.Text = resourceManager.GetString("TXT_CLOSEBTN");
-            btnUpdate.Text = resourceManager.GetString("TXT_UPDATEBTN");
-            btnRefreshToolTip.ToolTipTitle = resourceManager.GetString("TXT_REFRESHBTN");
-            txtEmpId.Text = resourceManager.GetString("TXT_EMPID");
+            lblName.Text = resource.TXT_LBLNAME;
+            lblFirstname.Text = resource.TXT_LBLFNAME;
+            lblLastname.Text = resource.TXT_LBLLNAME;
+            lblEmpID.Text = resource.TXT_LBLEMPID;
+            lblDOB.Text = resource.TXT_LBLDOB;
+            lblAddress.Text = resource.TXT_LBLADDRESS;
+            lblGender.Text = resource.TXT_LBLGENDER;
+            lblContact.Text = resource.TXT_LBLCONTACT;
+            lblBloodgroup.Text = resource.TXT_LBLBLOODGROUP;
+            lblHead.Text = resource.TXT_LBLHEAD;
+            radioBtnFemale.Text = resource.TXT_RBTNFEMALE;
+            radioBtnMale.Text = resource.TXT_RBTNMALE;
+            btnInsert.Text = resource.TXT_INSERTBTN;
+            btnDelete.Text = resource.TXT_DELETEBTN;
+            btnClose.Text = resource.TXT_CLOSEBTN;
+            btnUpdate.Text = resource.TXT_UPDATEBTN;
+            btnRefreshToolTip.ToolTipTitle = resource.TXT_REFRESHBTN;
+            txtEmpId.Text = resource.TXT_EMPID;
+            btnAddToolTip.ToolTipTitle = resource.TXT_INSERTTOOLTIP;
+            btnUpdateToolTip.ToolTipTitle = resource.TXT_UPDATETOOLTIP;
+            btnDeleteToolTip.ToolTipTitle = resource.TXT_DELETETOOLTIP;
+            btnCloseToolTip.ToolTipTitle = resource.TXT_CLOSETOOLTIP;
         }
     }
 }

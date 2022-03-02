@@ -58,6 +58,10 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.lblHead = new System.Windows.Forms.Label();
             this.btnRefreshToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAddToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnUpdateToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDeleteToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCloseToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,16 +87,16 @@
             this.panel1.Controls.Add(this.lblEmpID);
             this.panel1.Controls.Add(this.txtFirstname);
             this.panel1.Controls.Add(this.lblFirstname);
-            this.panel1.Location = new System.Drawing.Point(14, 57);
+            this.panel1.Location = new System.Drawing.Point(10, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 550);
+            this.panel1.Size = new System.Drawing.Size(1039, 550);
             this.panel1.TabIndex = 4;
             // 
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtAddress.Location = new System.Drawing.Point(40, 223);
+            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddress.Location = new System.Drawing.Point(24, 226);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(626, 91);
@@ -111,7 +115,7 @@
             "ab-",
             "o+",
             "o-"});
-            this.txtBloodgroup.Location = new System.Drawing.Point(40, 508);
+            this.txtBloodgroup.Location = new System.Drawing.Point(24, 511);
             this.txtBloodgroup.Name = "txtBloodgroup";
             this.txtBloodgroup.Size = new System.Drawing.Size(624, 24);
             this.txtBloodgroup.TabIndex = 58;
@@ -121,7 +125,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.radioBtnMale);
             this.groupBox1.Controls.Add(this.radioBtnFemale);
-            this.groupBox1.Location = new System.Drawing.Point(41, 357);
+            this.groupBox1.Location = new System.Drawing.Point(24, 360);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(626, 37);
             this.groupBox1.TabIndex = 73;
@@ -158,7 +162,7 @@
             this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(38, 48);
+            this.lblName.Location = new System.Drawing.Point(20, 51);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(62, 22);
             this.lblName.TabIndex = 72;
@@ -170,7 +174,7 @@
             this.txtEmpId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmpId.AutoSize = true;
             this.txtEmpId.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpId.Location = new System.Drawing.Point(215, 11);
+            this.txtEmpId.Location = new System.Drawing.Point(197, 14);
             this.txtEmpId.Name = "txtEmpId";
             this.txtEmpId.Size = new System.Drawing.Size(85, 25);
             this.txtEmpId.TabIndex = 71;
@@ -182,7 +186,7 @@
             this.lblGender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(36, 332);
+            this.lblGender.Location = new System.Drawing.Point(20, 335);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(74, 22);
             this.lblGender.TabIndex = 70;
@@ -195,7 +199,7 @@
             this.txtDOB.CustomFormat = "yyyy-MM-dd";
             this.txtDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtDOB.Location = new System.Drawing.Point(41, 154);
+            this.txtDOB.Location = new System.Drawing.Point(24, 157);
             this.txtDOB.MaxDate = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
             this.txtDOB.MinDate = new System.DateTime(1945, 1, 1, 0, 0, 0, 0);
             this.txtDOB.Name = "txtDOB";
@@ -206,8 +210,8 @@
             // txtContact
             // 
             this.txtContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContact.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtContact.Location = new System.Drawing.Point(41, 439);
+            this.txtContact.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtContact.Location = new System.Drawing.Point(24, 442);
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(624, 22);
             this.txtContact.TabIndex = 68;
@@ -218,7 +222,7 @@
             this.lblContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblContact.AutoSize = true;
             this.lblContact.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContact.Location = new System.Drawing.Point(37, 414);
+            this.lblContact.Location = new System.Drawing.Point(20, 417);
             this.lblContact.Name = "lblContact";
             this.lblContact.Size = new System.Drawing.Size(81, 22);
             this.lblContact.TabIndex = 67;
@@ -229,7 +233,7 @@
             this.lblBloodgroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBloodgroup.AutoSize = true;
             this.lblBloodgroup.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBloodgroup.Location = new System.Drawing.Point(37, 483);
+            this.lblBloodgroup.Location = new System.Drawing.Point(20, 486);
             this.lblBloodgroup.Name = "lblBloodgroup";
             this.lblBloodgroup.Size = new System.Drawing.Size(110, 22);
             this.lblBloodgroup.TabIndex = 66;
@@ -240,7 +244,7 @@
             this.lblAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(36, 198);
+            this.lblAddress.Location = new System.Drawing.Point(20, 201);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(82, 22);
             this.lblAddress.TabIndex = 64;
@@ -251,7 +255,7 @@
             this.lblDOB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDOB.AutoSize = true;
             this.lblDOB.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDOB.Location = new System.Drawing.Point(37, 131);
+            this.lblDOB.Location = new System.Drawing.Point(20, 134);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(51, 20);
             this.lblDOB.TabIndex = 63;
@@ -260,8 +264,8 @@
             // txtLastname
             // 
             this.txtLastname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastname.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtLastname.Location = new System.Drawing.Point(575, 73);
+            this.txtLastname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLastname.Location = new System.Drawing.Point(557, 76);
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(419, 22);
             this.txtLastname.TabIndex = 62;
@@ -271,7 +275,7 @@
             this.lblLastname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLastname.AutoSize = true;
             this.lblLastname.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblLastname.Location = new System.Drawing.Point(572, 98);
+            this.lblLastname.Location = new System.Drawing.Point(554, 101);
             this.lblLastname.Name = "lblLastname";
             this.lblLastname.Size = new System.Drawing.Size(69, 16);
             this.lblLastname.TabIndex = 61;
@@ -283,7 +287,7 @@
             this.lblEmpID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmpID.AutoSize = true;
             this.lblEmpID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpID.Location = new System.Drawing.Point(38, 14);
+            this.lblEmpID.Location = new System.Drawing.Point(20, 17);
             this.lblEmpID.Name = "lblEmpID";
             this.lblEmpID.Size = new System.Drawing.Size(115, 22);
             this.lblEmpID.TabIndex = 60;
@@ -292,8 +296,8 @@
             // 
             // txtFirstname
             // 
-            this.txtFirstname.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtFirstname.Location = new System.Drawing.Point(41, 73);
+            this.txtFirstname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFirstname.Location = new System.Drawing.Point(24, 76);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(411, 22);
             this.txtFirstname.TabIndex = 59;
@@ -304,7 +308,7 @@
             this.lblFirstname.AutoSize = true;
             this.lblFirstname.BackColor = System.Drawing.SystemColors.Control;
             this.lblFirstname.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFirstname.Location = new System.Drawing.Point(38, 98);
+            this.lblFirstname.Location = new System.Drawing.Point(24, 101);
             this.lblFirstname.Name = "lblFirstname";
             this.lblFirstname.Size = new System.Drawing.Size(69, 16);
             this.lblFirstname.TabIndex = 57;
@@ -338,8 +342,8 @@
             this.btnClose.Size = new System.Drawing.Size(111, 57);
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "Close";
+            this.btnCloseToolTip.SetToolTip(this.btnClose, ".");
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.UseWaitCursor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnRefresh
@@ -366,8 +370,8 @@
             this.btnDelete.Size = new System.Drawing.Size(111, 57);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
+            this.btnDeleteToolTip.SetToolTip(this.btnDelete, ".");
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.UseWaitCursor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
@@ -379,21 +383,22 @@
             this.btnUpdate.Size = new System.Drawing.Size(111, 57);
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update";
+            this.btnUpdateToolTip.SetToolTip(this.btnUpdate, ".");
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.UseWaitCursor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnInsert
             // 
             this.btnInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInsert.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnInsert.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsert.Location = new System.Drawing.Point(587, 784);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(111, 57);
             this.btnInsert.TabIndex = 8;
             this.btnInsert.Text = "Add";
+            this.btnAddToolTip.SetToolTip(this.btnInsert, ".");
             this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.UseWaitCursor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // lblHead
@@ -411,6 +416,10 @@
             // btnRefreshToolTip
             // 
             this.btnRefreshToolTip.ToolTipTitle = "Refresh";
+            // 
+            // btnAddToolTip
+            // 
+            this.btnAddToolTip.ToolTipTitle = "Add Employee";
             // 
             // EmployeeDashboard
             // 
@@ -471,6 +480,10 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Label lblHead;
         private System.Windows.Forms.ToolTip btnRefreshToolTip;
+        private System.Windows.Forms.ToolTip btnAddToolTip;
+        private System.Windows.Forms.ToolTip btnCloseToolTip;
+        private System.Windows.Forms.ToolTip btnDeleteToolTip;
+        private System.Windows.Forms.ToolTip btnUpdateToolTip;
     }
 }
 

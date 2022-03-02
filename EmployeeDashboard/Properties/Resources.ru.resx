@@ -118,111 +118,123 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MSG_DELETE" xml:space="preserve">
-    <value>Daten werden gelöscht</value>
+    <value>Данные удалены</value>
   </data>
   <data name="MSG_DELETEERR" xml:space="preserve">
-    <value>Möchten Sie diesen Datensatz löschen?</value>
+    <value>Вы хотите удалить эту запись?</value>
   </data>
   <data name="MSG_DELETEERROR" xml:space="preserve">
-    <value>Datensatz kann nicht gelöscht werden, versuchen Sie es später erneut!</value>
+    <value>Запись не может быть удалена, попробуйте позже!</value>
   </data>
   <data name="MSG_DELETEHEAD" xml:space="preserve">
-    <value>Mitarbeiterdaten gelöscht</value>
+    <value>Данные сотрудника удалены</value>
   </data>
   <data name="MSG_ERROR" xml:space="preserve">
-    <value>Fehler</value>
+    <value>Ошибка</value>
   </data>
   <data name="MSG_EXIST" xml:space="preserve">
-    <value>Sind Sie sicher, dass Sie aufhören wollen?</value>
+    <value>Вы уверены, что хотите выйти?</value>
   </data>
   <data name="MSG_EXISTHEAD" xml:space="preserve">
-    <value>Schließe die Anwendung</value>
+    <value>Закрыть приложение</value>
   </data>
   <data name="MSG_INPUT" xml:space="preserve">
-    <value>Benutzereingabe erforderlich</value>
+    <value>Требуется пользовательский ввод</value>
   </data>
   <data name="MSG_INPUTERROR" xml:space="preserve">
-    <value>Einige Felder sind leer und erfordern Benutzereingaben</value>
-  </data>
-  <data name="MSG_INSERHEAD" xml:space="preserve">
-    <value>Einfügen von Mitarbeiterdaten</value>
+    <value>Некоторые поля пусты и требуют ввода пользователем</value>
   </data>
   <data name="MSG_INSERT" xml:space="preserve">
-    <value>is created</value>
+    <value>создано</value>
   </data>
   <data name="MSG_INSERTERROR" xml:space="preserve">
-    <value>geschaffen</value>
+    <value>Запись не может быть вставлена, попробуйте позже!</value>
+  </data>
+  <data name="MSG_INSERTHEAD" xml:space="preserve">
+    <value>Вставка данных о сотрудниках</value>
   </data>
   <data name="MSG_INVALDERROR" xml:space="preserve">
-    <value>Kontakt Ungültig</value>
+    <value>Контакт недействителен</value>
   </data>
   <data name="MSG_INVALIDPHNO" xml:space="preserve">
-    <value>Ungültige Telefonnummer</value>
+    <value>Неправильный номер телефона</value>
   </data>
   <data name="MSG_UPDATE" xml:space="preserve">
-    <value>Daten werden aktualisiert</value>
+    <value>Данные обновлены</value>
   </data>
   <data name="MSG_UPDATEERROR" xml:space="preserve">
-    <value>Datensatz kann nicht aktualisiert werden, versuchen Sie es später erneut!</value>
+    <value>Запись не может быть обновлена, попробуйте позже!</value>
   </data>
   <data name="MSG_UPDATEHEAD" xml:space="preserve">
-    <value>Mitarbeiterdaten aktualisiert</value>
+    <value>Данные о сотрудниках обновлены</value>
   </data>
   <data name="TXT_CLOSEBTN" xml:space="preserve">
-    <value>Nah dran</value>
+    <value>Закрывать</value>
+  </data>
+  <data name="TXT_CLOSETOOLTIP" xml:space="preserve">
+    <value>Выйти из приложения</value>
   </data>
   <data name="TXT_DELETEBTN" xml:space="preserve">
-    <value>Aktualisieren</value>
+    <value>Удалить</value>
+  </data>
+  <data name="TXT_DELETETOOLTIP" xml:space="preserve">
+    <value>Удалить сотрудника</value>
   </data>
   <data name="TXT_EMPID" xml:space="preserve">
-    <value>Mitarbeiteridentität</value>
+    <value>личность сотрудника</value>
   </data>
   <data name="TXT_INSERTBTN" xml:space="preserve">
-    <value>Einfügung</value>
+    <value>Вставлять</value>
+  </data>
+  <data name="TXT_INSERTTOOLTIP" xml:space="preserve">
+    <value>Добавить нового сотрудника</value>
   </data>
   <data name="TXT_LBLADDRESS" xml:space="preserve">
-    <value>Adresse:</value>
+    <value>Адрес:</value>
   </data>
   <data name="TXT_LBLBLOODGROUP" xml:space="preserve">
-    <value>Blutgruppe:</value>
+    <value>Группа крови:</value>
   </data>
   <data name="TXT_LBLCONTACT" xml:space="preserve">
-    <value>Kontakt Nummer:</value>
+    <value>Контактный номер:</value>
   </data>
   <data name="TXT_LBLDOB" xml:space="preserve">
-    <value>Geburtsdatum:</value>
+    <value>Дата рождения:</value>
   </data>
   <data name="TXT_LBLEMPID" xml:space="preserve">
-    <value>Mitarbeiternummer:</value>
+    <value>Число работников:</value>
   </data>
   <data name="TXT_LBLFNAME" xml:space="preserve">
-    <value>Vorname</value>
+    <value>Имя</value>
   </data>
   <data name="TXT_LBLGENDER" xml:space="preserve">
-    <value>Geschlecht:</value>
+    <value>Пол:</value>
   </data>
   <data name="TXT_LBLHEAD" xml:space="preserve">
-    <value>Mitarbeiterformular</value>
+    <value>Форма сотрудника</value>
   </data>
   <data name="TXT_LBLLNAME" xml:space="preserve">
-    <value>Familienname</value>
+    <value>Фамилия</value>
   </data>
   <data name="TXT_LBLNAME" xml:space="preserve">
-    <value>Name:</value>
+    <value>Имя:</value>
   </data>
   <data name="TXT_RBTNFEMALE" xml:space="preserve">
-    <value>Weiblich</value>
+    <value>Женский</value>
   </data>
   <data name="TXT_RBTNMALE" xml:space="preserve">
-    <value>Männlich</value>
+    <value>Мужчина</value>
   </data>
   <data name="TXT_REFRESHBTN" xml:space="preserve">
-    <value>Aktualisierung</value>
+    <value>Обновить</value>
   </data>
   <data name="TXT_TOOLTIP" xml:space="preserve">
-    <value>Diese Schaltfläche aktualisiert die Mitarbeiterdaten</value>
+    <value>Эта кнопка обновит данные сотрудников</value>
   </data>
   <data name="TXT_UPDATEBTN" xml:space="preserve">
-    <value>Löschen</value>
+    <value>Обновлять</value>
+  </data>
+  <data name="TXT_UPDATETOOLTIP" xml:space="preserve">
+    <value>Обновить данные о сотрудниках</value>
   </data>
 </root>

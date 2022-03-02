@@ -22,14 +22,14 @@ namespace EmployeeDashboard.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ResourcesUS {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ResourcesUS() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace EmployeeDashboard.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EmployeeDashboard.Properties.ResourcesUS", typeof(ResourcesUS).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EmployeeDashboard.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -142,15 +142,6 @@ namespace EmployeeDashboard.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EmployeeData Insertion.
-        /// </summary>
-        internal static string MSG_INSERHEAD {
-            get {
-                return ResourceManager.GetString("MSG_INSERHEAD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to is created.
         /// </summary>
         internal static string MSG_INSERT {
@@ -165,6 +156,15 @@ namespace EmployeeDashboard.Properties {
         internal static string MSG_INSERTERROR {
             get {
                 return ResourceManager.GetString("MSG_INSERTERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeData Insertion.
+        /// </summary>
+        internal static string MSG_INSERTHEAD {
+            get {
+                return ResourceManager.GetString("MSG_INSERTHEAD", resourceCulture);
             }
         }
         
@@ -223,11 +223,29 @@ namespace EmployeeDashboard.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update.
+        ///   Looks up a localized string similar to Exit Application.
+        /// </summary>
+        internal static string TXT_CLOSETOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_CLOSETOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string TXT_DELETEBTN {
             get {
                 return ResourceManager.GetString("TXT_DELETEBTN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Employee.
+        /// </summary>
+        internal static string TXT_DELETETOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_DELETETOOLTIP", resourceCulture);
             }
         }
         
@@ -246,6 +264,15 @@ namespace EmployeeDashboard.Properties {
         internal static string TXT_INSERTBTN {
             get {
                 return ResourceManager.GetString("TXT_INSERTBTN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Employee.
+        /// </summary>
+        internal static string TXT_INSERTTOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_INSERTTOOLTIP", resourceCulture);
             }
         }
         
@@ -376,11 +403,20 @@ namespace EmployeeDashboard.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete.
+        ///   Looks up a localized string similar to Update.
         /// </summary>
         internal static string TXT_UPDATEBTN {
             get {
                 return ResourceManager.GetString("TXT_UPDATEBTN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Employees Data.
+        /// </summary>
+        internal static string TXT_UPDATETOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_UPDATETOOLTIP", resourceCulture);
             }
         }
     }

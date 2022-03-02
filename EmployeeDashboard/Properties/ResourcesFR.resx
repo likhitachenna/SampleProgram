@@ -117,27 +117,112 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAmRJREFUWEe9
-        l8lrFUEQh+cUjdtJRQzuG2IugoEQUFG8iScX/EsUL6JHBTciARNBEsSLevEg3sRdEPWsB3dc8eASFVy/
-        b+wO43u+Z0z69Q8+8qrT01UzU91VU/yHpsAmOAw34BEMwyd4BregF7aDc5PrAfwcJe/hOCyEZBqEi7Ab
-        1sJcmATt0AGrYSdchh9gIF9gP0yEproGtXch52AsWgon4Du4zl1YBA11BWqdR8ajVXAPXOcNdEJT+Sif
-        Q6oA1DQ4D671EpbAX+W7NJOd6HtMFYCaABfA9e4Eu057wQmPYWb4nSoA5da8D65pYv4ht8tnMHu7HUCp
-        A1Bd8A3cHfMciDoKOjtdWr9lYvoqUmsI9DVQWmgqeHB498sdaLFMQn19AM+RYjMYkQmYSx7l+tyiER+/
-        J1wu7QB96ru4GYw1Gpm0AfR5VcNKprFYI5Nmgz5faHwNRktKaAOZ+Pp8p/ExGA7mkqeuPu0lilfBsILl
-        0nzQp03NSClep5FJ+tJnmYR9wci5DfeAPg9qbA3GbY1MilvfHrM8DuNRvMyBFmsl6PwtmIyl+sHBM6WV
-        VuaYhS3qFOjrQGkFWRotkT6FHgcSSmeiTD59uPXnOFCVTYITH8IMBxIpBjAdYmu/C+pkm2S75IRL0AYp
-        FANwTf9eh4ZrWw9sHOMFKZ5EDECewixoqhXwGrzARzbenKgGUKWamHWyR/RciJPPwli7pfjoa/lnu+fn
-        1D5wd8SL/MLxFFsPBmQF9RzxbDfD/Z8OT0IyLYBjYOms3kEz/BpKLu90GxwBe7onYDn1E92t69gh2AiT
-        YRQqil/ed9KqqfDRCwAAAABJRU5ErkJggg==
-</value>
+  <data name="MSG_DELETE" xml:space="preserve">
+    <value>Les données sont supprimées</value>
   </data>
-  <metadata name="btnRefreshToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="MSG_DELETEERR" xml:space="preserve">
+    <value>Voulez-vous supprimer cet enregistrement?</value>
+  </data>
+  <data name="MSG_DELETEERROR" xml:space="preserve">
+    <value>L'enregistrement ne peut pas être supprimé, réessayez plus tard !</value>
+  </data>
+  <data name="MSG_DELETEHEAD" xml:space="preserve">
+    <value>Données sur les employés supprimées</value>
+  </data>
+  <data name="MSG_ERROR" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="MSG_EXIST" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir quitter?</value>
+  </data>
+  <data name="MSG_EXISTHEAD" xml:space="preserve">
+    <value>Fermer l'application</value>
+  </data>
+  <data name="MSG_INPUT" xml:space="preserve">
+    <value>Entrée utilisateur requise</value>
+  </data>
+  <data name="MSG_INPUTERROR" xml:space="preserve">
+    <value>Certains champs sont vides et nécessitent une saisie de l'utilisateur</value>
+  </data>
+  <data name="MSG_INSERHEAD" xml:space="preserve">
+    <value>Insertion des données des employés</value>
+  </data>
+  <data name="MSG_INSERT" xml:space="preserve">
+    <value>est créé</value>
+  </data>
+  <data name="MSG_INSERTERROR" xml:space="preserve">
+    <value>L'enregistrement ne peut pas être inséré, réessayez plus tard !</value>
+  </data>
+  <data name="MSG_INVALDERROR" xml:space="preserve">
+    <value>Contact invalide</value>
+  </data>
+  <data name="MSG_INVALIDPHNO" xml:space="preserve">
+    <value>Numéro de téléphone invalide</value>
+  </data>
+  <data name="MSG_UPDATE" xml:space="preserve">
+    <value>Les données sont mises à jour</value>
+  </data>
+  <data name="MSG_UPDATEERROR" xml:space="preserve">
+    <value>L'enregistrement ne peut pas être mis à jour, réessayez plus tard !</value>
+  </data>
+  <data name="MSG_UPDATEHEAD" xml:space="preserve">
+    <value>Données sur les employés mises à jour</value>
+  </data>
+  <data name="TXT_CLOSEBTN" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="TXT_DELETEBTN" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="TXT_EMPID" xml:space="preserve">
+    <value>identité de l'employé</value>
+  </data>
+  <data name="TXT_INSERTBTN" xml:space="preserve">
+    <value>Insérer</value>
+  </data>
+  <data name="TXT_LBLADDRESS" xml:space="preserve">
+    <value>Adresse:</value>
+  </data>
+  <data name="TXT_LBLBLOODGROUP" xml:space="preserve">
+    <value>Groupe sanguin:</value>
+  </data>
+  <data name="TXT_LBLCONTACT" xml:space="preserve">
+    <value>Numéro de contact:</value>
+  </data>
+  <data name="TXT_LBLDOB" xml:space="preserve">
+    <value>Date de naissance:</value>
+  </data>
+  <data name="TXT_LBLEMPID" xml:space="preserve">
+    <value>Numéro d'employé:</value>
+  </data>
+  <data name="TXT_LBLFNAME" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="TXT_LBLGENDER" xml:space="preserve">
+    <value>Le sexe:</value>
+  </data>
+  <data name="TXT_LBLHEAD" xml:space="preserve">
+    <value>Formulaire d'employé</value>
+  </data>
+  <data name="TXT_LBLLNAME" xml:space="preserve">
+    <value>Nom de famille</value>
+  </data>
+  <data name="TXT_LBLNAME" xml:space="preserve">
+    <value>Nom:</value>
+  </data>
+  <data name="TXT_RBTNFEMALE" xml:space="preserve">
+    <value>Femme</value>
+  </data>
+  <data name="TXT_RBTNMALE" xml:space="preserve">
+    <value>Mâle</value>
+  </data>
+  <data name="TXT_REFRESHBTN" xml:space="preserve">
+    <value>Rafraîchir</value>
+  </data>
+  <data name="TXT_TOOLTIP" xml:space="preserve">
+    <value>Ce bouton actualisera les données des employés</value>
+  </data>
+  <data name="TXT_UPDATEBTN" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
 </root>

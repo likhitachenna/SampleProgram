@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Windows.Forms;
+using System.Resources;
+using System.Reflection;
 
 namespace EmployeeDashboard
 {
     public partial class EmployeeDashboard : Form
     {
+      
+        static ResourceManager resourceManager = new ResourceManager("EmployeeDashboard.Properties.Resources"+ RegionInfo.CurrentRegion.Name, Assembly.GetExecutingAssembly());
         public EmployeeDashboard()
         {
-
             if (!Database.IsValidConnection())
                 return;
+
             InitializeComponent();
             DisplayRecords();
+            setLanguage();
         }
 
         private bool ValidateInput()
@@ -21,12 +27,12 @@ namespace EmployeeDashboard
             bool insertEmployee = true;
             if (txtAddress.Text == "" || txtBloodgroup.Text == "" || txtContact.Text == "" || txtDOB.Text == "" || txtFirstname.Text == "" || txtLastname.Text == "" || (radioBtnMale.Checked == false && radioBtnFemale.Checked == false))
             {
-                MessageBox.Show("Some fields are empty and requires user input", "UserInput Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(resourceManager.GetString("MSG_INPUTERROR"), resourceManager.GetString("MSG_INPUT"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 insertEmployee = false;
             }
             if ((txtContact.Text).Length != 10)
             {
-                MessageBox.Show("Invalid Phone Number", "Contact Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(resourceManager.GetString("MSG_INVALIDPHNO"), resourceManager.GetString("MSG_INVALDERROR"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 insertEmployee = false;
             }
             return insertEmployee;
@@ -43,11 +49,11 @@ namespace EmployeeDashboard
                 empId = Convert.ToInt32(res.Rows[0][0]);
                 if (empId > 0)
                 {
-                    MessageBox.Show("Emp Id:" + empId + " is created", "Record Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resourceManager.GetString("TXT_LBLEMPID")+ ":" + empId + " " + resourceManager.GetString("MSG_INSERT"), resourceManager.GetString("MSG_INSERHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Record cannot be Inserted, Try again Later!", "EmployeeData Insertion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(resourceManager.GetString("MSG_INSERTERROR"), resourceManager.GetString("MSG_INSERHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             DisplayRecords();
@@ -64,11 +70,11 @@ namespace EmployeeDashboard
                 bool employeeUpdated = Convert.ToBoolean(resultTable.Rows[0][0]);
                 if (employeeUpdated)
                 {
-                    MessageBox.Show("Employee: " + empId + " Data is Updated", "EmployeeData Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resourceManager.GetString("TXT_LBLEMPID") + ":" + empId + " " + resourceManager.GetString("MSG_UPDATE"), resourceManager.GetString("MSG_UPDATEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Record cannot be Updated, Try again Later!", "EmployeeData Updated", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(resourceManager.GetString("MSG_UPDATEERROR"), resourceManager.GetString("MSG_UPDATEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             DisplayRecords();
@@ -76,7 +82,7 @@ namespace EmployeeDashboard
 
         private void DeleteEmployee()
         {
-            DialogResult res = MessageBox.Show("Do you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult res = MessageBox.Show(resourceManager.GetString("MSG_DELETEERR"), resourceManager.GetString("MSG_DELETEHEAD"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (res == DialogResult.Yes)
             {
                 var empId = txtEmpId.Text;
@@ -89,11 +95,11 @@ namespace EmployeeDashboard
                     bool employeeDeleted = Convert.ToBoolean(resultTable.Rows[0][0]);
                     if (employeeDeleted)
                     {
-                        MessageBox.Show("Employee: " + empId + " Data is Deleted", "EmployeeData Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(resourceManager.GetString("TXT_LBLEMPID") + ":" + empId + " " + resourceManager.GetString("MSG_DELETE"), resourceManager.GetString("MSG_DELETEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Record cannot be deleted, Try again Later!", "EmployeeData Deleted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(resourceManager.GetString("MSG_DELETEERROR"), resourceManager.GetString("MSG_DELETEHEAD"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -145,13 +151,13 @@ namespace EmployeeDashboard
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, resourceManager.GetString("MSG_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Are you sure you want to quit?", "Close Application", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult res = MessageBox.Show(resourceManager.GetString("MSG_EXIST"), resourceManager.GetString("MSG_EXISTHEAD"), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (res == DialogResult.Yes)
             {
                 Application.Exit();
@@ -189,9 +195,30 @@ namespace EmployeeDashboard
         {
             long output;
             if(!(Int64.TryParse(txtContact.Text, out output))){
-                MessageBox.Show("Invalid Phone Number", "Contact Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(resourceManager.GetString("MSG_INVALIDPHNO"), resourceManager.GetString("MSG_INVALDERROR"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+        public void setLanguage()
+        {
+            lblName.Text = resourceManager.GetString("TXT_LBLNAME");
+            lblFirstname.Text = resourceManager.GetString("TXT_LBLFNAME");
+            lblLastname.Text = resourceManager.GetString("TXT_LBLLNAME");
+            lblEmpID.Text = resourceManager.GetString("TXT_LBLEMPID");
+            lblDOB.Text = resourceManager.GetString("TXT_LBLDOB");
+            lblAddress.Text = resourceManager.GetString("TXT_LBLADDRESS");
+            lblGender.Text = resourceManager.GetString("TXT_LBLGENDER");
+            lblContact.Text = resourceManager.GetString("TXT_LBLCONTACT");
+            lblBloodgroup.Text = resourceManager.GetString("TXT_LBLBLOODGROUP");
+            lblHead.Text = resourceManager.GetString("TXT_LBLHEAD");
+            radioBtnFemale.Text = resourceManager.GetString("TXT_RBTNFEMALE");
+            radioBtnMale.Text = resourceManager.GetString("TXT_RBTNMALE");
+            btnInsert.Text = resourceManager.GetString("TXT_INSERTBTN");
+            btnDelete.Text = resourceManager.GetString("TXT_DELETEBTN");
+            btnClose.Text = resourceManager.GetString("TXT_CLOSEBTN");
+            btnUpdate.Text = resourceManager.GetString("TXT_UPDATEBTN");
+            btnRefreshToolTip.ToolTipTitle = resourceManager.GetString("TXT_REFRESHBTN");
+            txtEmpId.Text = resourceManager.GetString("TXT_EMPID");
         }
     }
 }

@@ -100,6 +100,10 @@
     <EmbeddedResource Include="EmployeeDashboard.resx">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\ResourcesDE.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourcesDE.Designer.cs</LastGenOutput>
@@ -119,6 +123,11 @@
       <LastGenOutput>ResourcesUS.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\ResourcesDE.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

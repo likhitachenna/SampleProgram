@@ -118,111 +118,123 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MSG_DELETE" xml:space="preserve">
-    <value>Data is Deleted</value>
+    <value>Daten werden gelöscht</value>
   </data>
   <data name="MSG_DELETEERR" xml:space="preserve">
-    <value>Do you want to delete this record?</value>
+    <value>Möchten Sie diesen Datensatz löschen?</value>
   </data>
   <data name="MSG_DELETEERROR" xml:space="preserve">
-    <value>Record cannot be deleted, Try again Later!</value>
+    <value>Datensatz kann nicht gelöscht werden, versuchen Sie es später erneut!</value>
   </data>
   <data name="MSG_DELETEHEAD" xml:space="preserve">
-    <value>Employee Data Deleted</value>
+    <value>Mitarbeiterdaten gelöscht</value>
   </data>
   <data name="MSG_ERROR" xml:space="preserve">
-    <value>Error</value>
+    <value>Fehler</value>
   </data>
   <data name="MSG_EXIST" xml:space="preserve">
-    <value>Are you sure you want to quit?</value>
+    <value>Sind Sie sicher, dass Sie aufhören wollen?</value>
   </data>
   <data name="MSG_EXISTHEAD" xml:space="preserve">
-    <value>Close Application</value>
+    <value>Schließe die Anwendung</value>
   </data>
   <data name="MSG_INPUT" xml:space="preserve">
-    <value>UserInput Required</value>
+    <value>Benutzereingabe erforderlich</value>
   </data>
   <data name="MSG_INPUTERROR" xml:space="preserve">
-    <value>Some fields are empty and requires user input</value>
-  </data>
-  <data name="MSG_INSERHEAD" xml:space="preserve">
-    <value>EmployeeData Insertion</value>
+    <value>Einige Felder sind leer und erfordern Benutzereingaben</value>
   </data>
   <data name="MSG_INSERT" xml:space="preserve">
     <value>is created</value>
   </data>
   <data name="MSG_INSERTERROR" xml:space="preserve">
-    <value>Record cannot be Inserted, Try again Later!</value>
+    <value>geschaffen</value>
+  </data>
+  <data name="MSG_INSERTHEAD" xml:space="preserve">
+    <value>Einfügen von Mitarbeiterdaten</value>
   </data>
   <data name="MSG_INVALDERROR" xml:space="preserve">
-    <value>Contact Invalid</value>
+    <value>Kontakt Ungültig</value>
   </data>
   <data name="MSG_INVALIDPHNO" xml:space="preserve">
-    <value>Invalid Phone Number</value>
+    <value>Ungültige Telefonnummer</value>
   </data>
   <data name="MSG_UPDATE" xml:space="preserve">
-    <value>Data is Updated</value>
+    <value>Daten werden aktualisiert</value>
   </data>
   <data name="MSG_UPDATEERROR" xml:space="preserve">
-    <value>Record cannot be Updated, Try again Later!</value>
+    <value>Datensatz kann nicht aktualisiert werden, versuchen Sie es später erneut!</value>
   </data>
   <data name="MSG_UPDATEHEAD" xml:space="preserve">
-    <value>Employee Data Updated</value>
+    <value>Mitarbeiterdaten aktualisiert</value>
   </data>
   <data name="TXT_CLOSEBTN" xml:space="preserve">
-    <value>Close</value>
+    <value>Nah dran</value>
+  </data>
+  <data name="TXT_CLOSETOOLTIP" xml:space="preserve">
+    <value>Anwendung verlassen</value>
   </data>
   <data name="TXT_DELETEBTN" xml:space="preserve">
-    <value>Update</value>
+    <value>Löschen</value>
+  </data>
+  <data name="TXT_DELETETOOLTIP" xml:space="preserve">
+    <value>Mitarbeiter löschen</value>
   </data>
   <data name="TXT_EMPID" xml:space="preserve">
-    <value>EmpId</value>
+    <value>Mitarbeiteridentität</value>
   </data>
   <data name="TXT_INSERTBTN" xml:space="preserve">
-    <value>Insert</value>
+    <value>Einfügung</value>
+  </data>
+  <data name="TXT_INSERTTOOLTIP" xml:space="preserve">
+    <value>Neuen Mitarbeiter hinzufügen</value>
   </data>
   <data name="TXT_LBLADDRESS" xml:space="preserve">
-    <value>Address:</value>
+    <value>Adresse:</value>
   </data>
   <data name="TXT_LBLBLOODGROUP" xml:space="preserve">
-    <value>Bloodgroup:</value>
+    <value>Blutgruppe:</value>
   </data>
   <data name="TXT_LBLCONTACT" xml:space="preserve">
-    <value>Contact:</value>
+    <value>Kontakt Nummer:</value>
   </data>
   <data name="TXT_LBLDOB" xml:space="preserve">
-    <value>DOB:</value>
+    <value>Geburtsdatum:</value>
   </data>
   <data name="TXT_LBLEMPID" xml:space="preserve">
-    <value>EmployeeId:</value>
+    <value>Mitarbeiternummer:</value>
   </data>
   <data name="TXT_LBLFNAME" xml:space="preserve">
-    <value>FirstName</value>
+    <value>Vorname</value>
   </data>
   <data name="TXT_LBLGENDER" xml:space="preserve">
-    <value>Gender:</value>
+    <value>Geschlecht:</value>
   </data>
   <data name="TXT_LBLHEAD" xml:space="preserve">
-    <value>EMPLOYEE INFORMATION FORM</value>
+    <value>Mitarbeiterformular</value>
   </data>
   <data name="TXT_LBLLNAME" xml:space="preserve">
-    <value>LastName</value>
+    <value>Familienname</value>
   </data>
   <data name="TXT_LBLNAME" xml:space="preserve">
     <value>Name:</value>
   </data>
   <data name="TXT_RBTNFEMALE" xml:space="preserve">
-    <value>Female</value>
+    <value>Weiblich</value>
   </data>
   <data name="TXT_RBTNMALE" xml:space="preserve">
-    <value>Male</value>
+    <value>Männlich</value>
   </data>
   <data name="TXT_REFRESHBTN" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Aktualisierung</value>
   </data>
   <data name="TXT_TOOLTIP" xml:space="preserve">
-    <value>This button will refresh the employees data</value>
+    <value>Diese Schaltfläche aktualisiert die Mitarbeiterdaten</value>
   </data>
   <data name="TXT_UPDATEBTN" xml:space="preserve">
-    <value>Delete</value>
+    <value>Aktualisieren</value>
+  </data>
+  <data name="TXT_UPDATETOOLTIP" xml:space="preserve">
+    <value>Mitarbeiterdaten aktualisieren</value>
   </data>
 </root>

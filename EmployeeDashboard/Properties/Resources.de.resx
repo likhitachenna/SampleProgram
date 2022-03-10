@@ -168,11 +168,17 @@
   <data name="MSG_UPDATEHEAD" xml:space="preserve">
     <value>Mitarbeiterdaten aktualisiert</value>
   </data>
+  <data name="TXT_BTNEXPORT" xml:space="preserve">
+    <value>Export</value>
+  </data>
   <data name="TXT_CLOSEBTN" xml:space="preserve">
     <value>Nah dran</value>
   </data>
   <data name="TXT_CLOSETOOLTIP" xml:space="preserve">
     <value>Anwendung verlassen</value>
+  </data>
+  <data name="TXT_DATAERROR" xml:space="preserve">
+    <value>Kann keine Aufzeichnungen finden</value>
   </data>
   <data name="TXT_DELETEBTN" xml:space="preserve">
     <value>Löschen</value>
@@ -182,6 +188,15 @@
   </data>
   <data name="TXT_EMPID" xml:space="preserve">
     <value>Mitarbeiteridentität</value>
+  </data>
+  <data name="TXT_EXPORTTOOLTIP" xml:space="preserve">
+    <value>Exportiert die Daten in Dateien</value>
+  </data>
+  <data name="TXT_FILECREATION" xml:space="preserve">
+    <value>Erfolgreich erstellt</value>
+  </data>
+  <data name="TXT_FILEHEAD" xml:space="preserve">
+    <value>Daten exportieren</value>
   </data>
   <data name="TXT_INSERTBTN" xml:space="preserve">
     <value>Einfügung</value>

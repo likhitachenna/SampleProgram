@@ -7,6 +7,11 @@ using System.Resources;
 using System.Reflection;
 using resource = EmployeeDashboard.Properties.Resources;
 using System.Threading;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
+using Microsoft.Office.Interop.Excel;
+using ZedGraph;
 
 namespace EmployeeDashboard
 {
@@ -49,7 +54,7 @@ namespace EmployeeDashboard
                 empId = Convert.ToInt32(res.Rows[0][0]);
                 if (empId > 0)
                 {
-                    MessageBox.Show(resource.TXT_LBLEMPID+ ":" + empId + " " + resource.MSG_INSERT, resource.MSG_INSERTHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resource.TXT_LBLEMPID + empId + " " + resource.MSG_INSERT, resource.MSG_INSERTHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -64,13 +69,13 @@ namespace EmployeeDashboard
             var empId = txtEmpId.Text;
             SqlCommand sq = getList();
             sq.Parameters.AddWithValue("@EmployeeId", SqlDbType.VarChar).Value = txtEmpId.Text;
-            DataTable resultTable = Database.ExecuteStoredProcedure("Employee_Update", sq);
+            System.Data.DataTable resultTable = Database.ExecuteStoredProcedure("Employee_Update", sq);
             if (resultTable != null && resultTable.Rows.Count > 0)
             {
                 bool employeeUpdated = Convert.ToBoolean(resultTable.Rows[0][0]);
                 if (employeeUpdated)
                 {
-                    MessageBox.Show(resource.TXT_LBLEMPID + ":" + empId + " " + resource.MSG_UPDATE, resource.MSG_UPDATEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(resource.TXT_LBLEMPID+ empId + " " + resource.MSG_UPDATE, resource.MSG_UPDATEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -89,13 +94,13 @@ namespace EmployeeDashboard
                 SqlCommand para = new SqlCommand();
                 para.CommandType = CommandType.StoredProcedure;
                 para.Parameters.AddWithValue("@EmployeeID", SqlDbType.VarChar).Value = txtEmpId.Text;
-                DataTable resultTable = Database.ExecuteStoredProcedure("Employee_Delete", para);
+                System.Data.DataTable resultTable = Database.ExecuteStoredProcedure("Employee_Delete", para);
                 if (resultTable != null && resultTable.Rows.Count > 0)
                 {
                     bool employeeDeleted = Convert.ToBoolean(resultTable.Rows[0][0]);
                     if (employeeDeleted)
                     {
-                        MessageBox.Show(resource.TXT_LBLEMPID + ":" + empId + " " + resource.MSG_DELETE, resource.MSG_DELETEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(resource.TXT_LBLEMPID + empId + " " + resource.MSG_DELETE, resource.MSG_DELETEHEAD, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -107,7 +112,7 @@ namespace EmployeeDashboard
         }
         public void DisplayRecords()
         {
-            DataTable resultTable = Database.ExecuteStoredProcedure("Employee_Display");
+            System.Data.DataTable resultTable = Database.ExecuteStoredProcedure("Employee_Display");
             dataGridView1.DataSource = resultTable;
             Reset();
         }
@@ -127,7 +132,7 @@ namespace EmployeeDashboard
                 txtAddress.Text = row.Cells["Address"].Value.ToString();
                 txtBloodgroup.Text = row.Cells["Bloodgroup"].Value.ToString();
                 txtContact.Text = row.Cells["Contact"].Value.ToString();
-                if(row.Cells["Gender"].Value.ToString() == "Male")
+                if (row.Cells["Gender"].Value.ToString() == "Male")
                     radioBtnMale.Checked = true;
                 else
                     radioBtnFemale.Checked = true;
@@ -160,7 +165,7 @@ namespace EmployeeDashboard
             DialogResult res = MessageBox.Show(resource.MSG_EXIST, resource.MSG_EXISTHEAD, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (res == DialogResult.Yes)
             {
-                Application.Exit();
+                System.Windows.Forms.Application.Exit();
             }
         }
         public void Reset()
@@ -176,6 +181,7 @@ namespace EmployeeDashboard
             radioBtnMale.Checked = true;
             radioBtnFemale.Checked = false;
             txtEmpId.Text = resource.TXT_EMPID;
+           
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -195,7 +201,7 @@ namespace EmployeeDashboard
         private void txtContact_Leave(object sender, EventArgs e)
         {
             long output;
-            if(!(Int64.TryParse(txtContact.Text, out output))){
+            if (!(Int64.TryParse(txtContact.Text, out output))) {
                 MessageBox.Show(resource.MSG_INVALIDPHNO, resource.MSG_INVALDERROR, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -224,6 +230,166 @@ namespace EmployeeDashboard
             btnUpdateToolTip.ToolTipTitle = resource.TXT_UPDATETOOLTIP;
             btnDeleteToolTip.ToolTipTitle = resource.TXT_DELETETOOLTIP;
             btnCloseToolTip.ToolTipTitle = resource.TXT_CLOSETOOLTIP;
+            btnExportToolTip.ToolTipTitle = resource.TXT_EXPORTTOOLTIP;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            exportData();
+        }
+
+        public void exportData()
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.Filter = "PDF |*.pdf|EXCEL |*.xlsx|TEXT |*.txt";
+                saveFile.FileName = "Result.pdf";
+                bool fileCreated = false;
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        switch (saveFile.FilterIndex)
+                        {
+                            case 1:
+                                fileCreated = CreatePdf(saveFile.FileName);
+                                break;
+                            case 2:
+                                fileCreated = CreateExcelSpreadSheet(saveFile.FileName);
+                                break;
+                            case 3:
+                                fileCreated = CreateTextFile(saveFile.FileName);
+                                break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message,resource.MSG_ERROR,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (fileCreated)
+                        MessageBox.Show(saveFile.FileName+" "+resource.TXT_FILECREATION, resource.TXT_FILEHEAD, MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show(resource.TXT_DATAERROR, resource.TXT_FILEHEAD,MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+        }
+        public bool CreatePdf(string fileName)
+        {
+            try
+            {
+                PdfPTable pTable = new PdfPTable(dataGridView1.Columns.Count);
+                pTable.WidthPercentage = 90;
+                int c = 0;
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    PdfPCell pCell = new PdfPCell(new Phrase(col.HeaderText));
+                    pTable.AddCell(pCell);
+                }
+                foreach (DataGridViewRow viewRow in dataGridView1.Rows)
+                {
+                    c = 0;
+                    foreach (DataGridViewCell dcell in viewRow.Cells)
+                    {
+                        if (c == 3)
+                        {
+                            var dateTime = dcell.Value.ToString();
+                            var d1 = Convert.ToDateTime(dateTime);
+                            pTable.AddCell(d1.ToString("yyyy/MM/dd"));
+                        }
+                        else
+                            pTable.AddCell(new Phrase(dcell.Value.ToString()));
+                        c++;
+                    }
+                }
+                using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
+                {
+                    iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 15f, 15f, 15f, 15f);
+                    PdfWriter.GetInstance(document, fileStream);
+                    string header = "details of employees";
+                    document.Open();
+                    document.Add(AddHeader(header));
+                    document.Add(pTable);
+                    document.Close();
+                    fileStream.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, resource.MSG_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        public bool CreateExcelSpreadSheet(string fileName)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+                Workbook workBook = Excel.Workbooks.Add(Type.Missing);
+                Worksheet workSheet = (Worksheet)workBook.ActiveSheet;
+                Excel.Visible = false;
+                for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+                {
+                    workSheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                }
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        Excel.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                workBook.SaveAs(fileName);
+                workBook.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, resource.MSG_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public bool CreateTextFile(string fileName)
+        {
+            try
+            {
+                TextWriter writer = new StreamWriter(fileName);
+                writer.Write("Details of Customers");
+                writer.WriteLine();
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    writer.Write("\t" + dataGridView1.Columns[i].HeaderText + "\t\t" + "|");
+                }
+                writer.WriteLine();
+                for (int i = 0;i< dataGridView1.Rows.Count - 1; i++)
+                {
+                    for(int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        writer.Write("\t\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t\t\t"+ "|");
+                    }
+                    writer.WriteLine();    
+                }
+                writer.Close();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, resource.MSG_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public Paragraph AddHeader(string title)
+        {
+            iTextSharp.text.Font headingFont = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL,30, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            Paragraph head = new Paragraph(title.ToUpper(), headingFont);
+            head.Alignment = Element.ALIGN_CENTER;
+            head.SpacingAfter = 20;
+            return head;
         }
     }
 }

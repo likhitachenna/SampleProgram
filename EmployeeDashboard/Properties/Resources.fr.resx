@@ -168,11 +168,17 @@
   <data name="MSG_UPDATEHEAD" xml:space="preserve">
     <value>Données sur les employés mises à jour</value>
   </data>
+  <data name="TXT_BTNEXPORT" xml:space="preserve">
+    <value>Exportation</value>
+  </data>
   <data name="TXT_CLOSEBTN" xml:space="preserve">
     <value>Fermer</value>
   </data>
   <data name="TXT_CLOSETOOLTIP" xml:space="preserve">
     <value>Quitter la candidature</value>
+  </data>
+  <data name="TXT_DATAERROR" xml:space="preserve">
+    <value>Impossible de trouver des enregistrements</value>
   </data>
   <data name="TXT_DELETEBTN" xml:space="preserve">
     <value>Supprimer</value>
@@ -182,6 +188,15 @@
   </data>
   <data name="TXT_EMPID" xml:space="preserve">
     <value>identité de l'employé</value>
+  </data>
+  <data name="TXT_EXPORTTOOLTIP" xml:space="preserve">
+    <value>Exporte les données dans des fichiers</value>
+  </data>
+  <data name="TXT_FILECREATION" xml:space="preserve">
+    <value>Créé avec succès</value>
+  </data>
+  <data name="TXT_FILEHEAD" xml:space="preserve">
+    <value>Exporter des données</value>
   </data>
   <data name="TXT_INSERTBTN" xml:space="preserve">
     <value>Insérer</value>

@@ -214,6 +214,15 @@ namespace EmployeeDashboard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        internal static string TXT_BTNEXPORT {
+            get {
+                return ResourceManager.GetString("TXT_BTNEXPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string TXT_CLOSEBTN {
@@ -228,6 +237,15 @@ namespace EmployeeDashboard.Properties {
         internal static string TXT_CLOSETOOLTIP {
             get {
                 return ResourceManager.GetString("TXT_CLOSETOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot Found Any Records.
+        /// </summary>
+        internal static string TXT_DATAERROR {
+            get {
+                return ResourceManager.GetString("TXT_DATAERROR", resourceCulture);
             }
         }
         
@@ -255,6 +273,33 @@ namespace EmployeeDashboard.Properties {
         internal static string TXT_EMPID {
             get {
                 return ResourceManager.GetString("TXT_EMPID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exports the data into files.
+        /// </summary>
+        internal static string TXT_EXPORTTOOLTIP {
+            get {
+                return ResourceManager.GetString("TXT_EXPORTTOOLTIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created Successfully.
+        /// </summary>
+        internal static string TXT_FILECREATION {
+            get {
+                return ResourceManager.GetString("TXT_FILECREATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export Data.
+        /// </summary>
+        internal static string TXT_FILEHEAD {
+            get {
+                return ResourceManager.GetString("TXT_FILEHEAD", resourceCulture);
             }
         }
         

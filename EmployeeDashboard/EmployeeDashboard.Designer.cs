@@ -62,6 +62,8 @@
             this.btnUpdateToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnDeleteToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnCloseToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnExportToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -317,6 +319,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -421,11 +424,27 @@
             // 
             this.btnAddToolTip.ToolTipTitle = "Add Employee";
             // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExport.AutoSize = true;
+            this.btnExport.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.Location = new System.Drawing.Point(82, 785);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(66, 57);
+            this.btnExport.TabIndex = 24;
+            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportToolTip.SetToolTip(this.btnExport, ".");
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // EmployeeDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 853);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lblHead);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRefresh);
@@ -440,7 +459,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Dashboard";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -484,6 +502,8 @@
         private System.Windows.Forms.ToolTip btnCloseToolTip;
         private System.Windows.Forms.ToolTip btnDeleteToolTip;
         private System.Windows.Forms.ToolTip btnUpdateToolTip;
+        private System.Windows.Forms.ToolTip btnExportToolTip;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 

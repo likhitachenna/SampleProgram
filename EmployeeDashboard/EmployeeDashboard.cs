@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
@@ -11,7 +10,6 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using Microsoft.Office.Interop.Excel;
-using ZedGraph;
 
 namespace EmployeeDashboard
 {
@@ -290,6 +288,8 @@ namespace EmployeeDashboard
                     PdfPCell pCell = new PdfPCell(new Phrase(col.HeaderText));
                     pTable.AddCell(pCell);
                 }
+                float[] widths = new float[] { 0.5f, 1.1f, 1.1f, 1.2f, 1.5f, 0.5f, 1.2f, 0.5f };
+                pTable.SetWidths(widths);
                 foreach (DataGridViewRow viewRow in dataGridView1.Rows)
                 {
                     c = 0;
@@ -297,8 +297,7 @@ namespace EmployeeDashboard
                     {
                         if (c == 3)
                         {
-                            var dateTime = dcell.Value.ToString();
-                            var d1 = Convert.ToDateTime(dateTime);
+                            var d1 = Convert.ToDateTime(dcell.Value.ToString());
                             pTable.AddCell(d1.ToString("yyyy/MM/dd"));
                         }
                         else
@@ -308,7 +307,7 @@ namespace EmployeeDashboard
                 }
                 using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
                 {
-                    iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 15f, 15f, 15f, 15f);
+                    iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 20f, 20f, 20f,30f);
                     PdfWriter.GetInstance(document, fileStream);
                     string header = "details of employees";
                     document.Open();
@@ -317,6 +316,7 @@ namespace EmployeeDashboard
                     document.Close();
                     fileStream.Close();
                 }
+                AddFooter(fileName);
             }
             catch (Exception ex)
             {
@@ -333,15 +333,24 @@ namespace EmployeeDashboard
                 Workbook workBook = Excel.Workbooks.Add(Type.Missing);
                 Worksheet workSheet = (Worksheet)workBook.ActiveSheet;
                 Excel.Visible = false;
+                int c = 0;
                 for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
                 {
                     workSheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
                 }
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
+                    c = 0;
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
-                        Excel.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        if (c == 3)
+                        {
+                            var d1 = Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value.ToString());
+                            Excel.Cells[i + 2, j + 1] = d1.ToString("yyyy/MM/dd");
+                        }
+                        else
+                            Excel.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        c++;
                     }
                 }
                 workBook.SaveAs(fileName);
@@ -361,16 +370,25 @@ namespace EmployeeDashboard
                 TextWriter writer = new StreamWriter(fileName);
                 writer.Write("Details of Customers");
                 writer.WriteLine();
+                int c = 0;
                 for (int i = 0; i < dataGridView1.Columns.Count; i++)
                 {
-                    writer.Write("\t" + dataGridView1.Columns[i].HeaderText + "\t\t" + "|");
+                    writer.Write("\t" + dataGridView1.Columns[i].HeaderText + "\t" );
                 }
                 writer.WriteLine();
                 for (int i = 0;i< dataGridView1.Rows.Count - 1; i++)
                 {
+                    c = 0;
                     for(int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
-                        writer.Write("\t\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t\t\t"+ "|");
+                        if (c == 3)
+                        {
+                            var d = Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value.ToString());
+                            writer.Write("\t" + d.ToString("yyyy/MM/dd") + "\t");
+                        }
+                        else
+                            writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t"); ;
+                        c++;
                     }
                     writer.WriteLine();    
                 }
@@ -390,6 +408,24 @@ namespace EmployeeDashboard
             head.Alignment = Element.ALIGN_CENTER;
             head.SpacingAfter = 20;
             return head;
+        }
+        public void AddFooter(string fileName)
+        {
+            byte[] bytes = File.ReadAllBytes(fileName);
+            using (MemoryStream stream = new MemoryStream())
+            {
+                PdfReader reader = new PdfReader(bytes);
+                using (PdfStamper stamper = new PdfStamper(reader, stream))
+                {
+                    int pages = reader.NumberOfPages;
+                    for (int i = 1; i <= pages; i++)
+                    {
+                        ColumnText.ShowTextAligned(stamper.GetUnderContent(i), Element.ALIGN_RIGHT, new Phrase(i.ToString()), 568f, 15f, 0);
+                    }
+                }
+             bytes = stream.ToArray();
+            }
+            File.WriteAllBytes(fileName, bytes);
         }
     }
 }

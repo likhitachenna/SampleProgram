@@ -1,0 +1,11 @@
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\bin\Debug\CategoryHierarchy.exe.config
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\bin\Debug\CategoryHierarchy.exe
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\bin\Debug\CategoryHierarchy.pdb
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.csproj.AssemblyReference.cache
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.csproj.SuggestedBindingRedirects.cache
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.Category_Hierarchy.resources
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.Properties.Resources.resources
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.csproj.GenerateResource.cache
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.csproj.CoreCompileInputs.cache
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.exe
+C:\Users\clikhita\source\repos\_GitRepos\sam\HierarchyEditor\obj\Debug\CategoryHierarchy.pdb

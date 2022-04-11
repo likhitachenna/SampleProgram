@@ -42,9 +42,7 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.popUpMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // treeViewHierarchyEditor
@@ -174,22 +172,11 @@
             this.comboBox1.TabIndex = 12;
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 586);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(672, 74);
-            this.dataGridView1.TabIndex = 13;
-            // 
             // Category_Hierarchy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 672);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(694, 574);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblLevel);
@@ -204,7 +191,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hirerachy Editor";
             this.popUpMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +209,6 @@
         private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

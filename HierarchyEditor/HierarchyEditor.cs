@@ -302,7 +302,6 @@ namespace CategoryHierarchy
         {
             DataRow[] result = table.Select("[ACTION] <> ''");
             DataTable data = result.CopyToDataTable();
-            dataGridView1.DataSource = data;
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@datatable", SqlDbType.Structured).Value = data;

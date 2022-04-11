@@ -26,11 +26,10 @@ namespace CategoryHierarchy
                 cmd.CommandText = storedProcedureName;
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataSet);
-                /*if (dataSet.Tables.Count > 0)
+                if (dataSet.Tables.Count > 0)
                 {
-                    //return dataSet.Tables[0];
-                }*/
-                return dataSet;
+                    return dataSet;
+                }
             }
             catch (Exception e)
             {

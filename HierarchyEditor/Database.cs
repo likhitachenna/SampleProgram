@@ -12,7 +12,7 @@ namespace CategoryHierarchy
 {
     internal class Database
     {
-        public static DataTable ExecuteStoredProcedure(string storedProcedureName, SqlCommand cmd)
+        public static DataSet ExecuteStoredProcedure(string storedProcedureName, SqlCommand cmd)
         {
             DataSet dataSet = new DataSet();
             try
@@ -26,10 +26,11 @@ namespace CategoryHierarchy
                 cmd.CommandText = storedProcedureName;
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dataSet);
-                if (dataSet.Tables.Count > 0)
+                /*if (dataSet.Tables.Count > 0)
                 {
-                    return dataSet.Tables[0];
-                }
+                    //return dataSet.Tables[0];
+                }*/
+                return dataSet;
             }
             catch (Exception e)
             {

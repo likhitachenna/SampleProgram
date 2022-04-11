@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoryHierarchy", "CategoryHierarchy.csproj", "{E186D4E7-4C5A-450B-B845-84970B13D08C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HierarchyEditor", "HierarchyEditor.csproj", "{E186D4E7-4C5A-450B-B845-84970B13D08C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

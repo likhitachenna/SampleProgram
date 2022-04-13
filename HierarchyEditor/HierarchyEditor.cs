@@ -105,7 +105,7 @@ namespace CategoryHierarchy
             foreach (DataRow dataRow in table.Rows)
             {
                 if (Convert.ToInt32(dataRow["ID"]) == id)
-                    if(dataRow["ACTION"] == "A")
+                    if(dataRow["ACTION"].ToString() == "A")
                     {
                         RemoveRows(Convert.ToInt32(dataRow["ID"]));
                         return;

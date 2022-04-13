@@ -69,7 +69,7 @@ namespace CategoryHierarchy
             {
                 if (null == _database)
                 {
-                    _database = new SqlConnection(ConfigurationSettings.AppSettings["ConnectionString"]);
+                    _database = new SqlConnection(ConfigurationManager.AppSettings["ConnectionString"]);
                 }
                 return _database;
             }
